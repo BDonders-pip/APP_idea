@@ -1,4 +1,3 @@
-# APP Idea
 
 # About
 Basically is an app that gives to the user information about the ingredients of a product that will consume, in a intuitive and easy way to get it,
