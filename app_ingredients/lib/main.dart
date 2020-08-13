@@ -23,14 +23,19 @@ class StartWidget extends StatelessWidget {
             position: Position.BOTTOM_LEFT,
             clipHeight: 400,
             child: Container(
+              child: Align(
+                alignment: Alignment(-0.6, -0.4),
+                child: Text(
+                  "App",
+                  style: TextStyle(
+                      fontSize: 90
+                  ),
+                ),
+              ),
               width: MediaQuery.of(context).size.width,
               height: 520,
               color: Color(0xff085df4),
             ),
-          ),
-          Text(
-            "APP",
-            style: TextStyle(fontFamily: "Arial"),
           ),
           Positioned(
             bottom: 0,
@@ -48,3 +53,4 @@ class StartWidget extends StatelessWidget {
     );
   }
 }
+// Especificar las reglas de los widgets para que siga las resoluciones, nunca números fijos
