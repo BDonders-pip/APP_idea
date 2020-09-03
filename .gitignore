@@ -1,0 +1,13 @@
+﻿app_ingredients/test
+app_ingredients/ios
+app_ingredients/android
+*.md
+app_ingredients/pubspec.lock
+app_ingredients/.metadata
+app_ingredients/.gitignore
+test_app/pubspec.lock
+test_app/.metadata
+test_app/.gitignore
+test_app/ios
+test_app/android
+test_app
