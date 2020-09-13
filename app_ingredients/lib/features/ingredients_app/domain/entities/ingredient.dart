@@ -8,7 +8,6 @@ class Ingredient extends Equatable {
   final String description;
   final String uses;
   final String secondaryEffects;
-  final String otherNames;
 
   Ingredient({
     @required this.code,
@@ -17,7 +16,6 @@ class Ingredient extends Equatable {
     @required this.description,
     @required this.uses,
     @required this.secondaryEffects,
-    @required this.otherNames,
-  }) : super([code, name, toxicity, description, uses, secondaryEffects, otherNames]);
+  }) : super([code, name, toxicity, description, uses, secondaryEffects]);
 
 }

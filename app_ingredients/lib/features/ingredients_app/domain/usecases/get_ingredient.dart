@@ -1,4 +1,3 @@
-
 import 'package:app_ingredients/core/error/failures.dart';
 import 'package:app_ingredients/core/usecases/usecase.dart';
 import 'package:app_ingredients/features/ingredients_app/domain/entities/ingredient.dart';
