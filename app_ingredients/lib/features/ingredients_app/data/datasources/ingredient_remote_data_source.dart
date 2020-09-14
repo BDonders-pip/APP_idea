@@ -19,7 +19,7 @@ class IngredientRemoteDataSourceImpl implements IngredientRemoteDataSource {
   IngredientRemoteDataSourceImpl({@required this.client});
 
   @override
-  Future<Ingredient> getIngredient(name) => _getIngredientFromUrl("https://vps1.camiloh.com/foods/$name");
+  Future<Ingredient> getIngredient(name) => _getIngredientFromUrl("https://vps1.camiloh.com/foods/name/$name");
 
   Future<IngredientModel> _getIngredientFromUrl(String url) async {
     final response = await client.get(
