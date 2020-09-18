@@ -23,7 +23,6 @@ Future<void> init() async {
 
   // Use cases
   sl.registerLazySingleton(() => GetIngredient(sl()));
-  sl.registerLazySingleton(() => GetIngredient(sl()));
 
   // Repository
   sl.registerLazySingleton<IngredientRepository>(
