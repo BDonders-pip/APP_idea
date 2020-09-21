@@ -15,14 +15,14 @@ class IngredientDisplay extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 3,
       child: Column(
         children: <Widget>[
-          Text(ingredient.code,
+          Text(ingredient.name,
             style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
           ),
           Expanded(
             child: Center(
               child: SingleChildScrollView(
                 child: Text(
-                  ingredient.toxicity,
+                  ingredient.description,
                   style: TextStyle(fontSize: 15),
                   textAlign: TextAlign.center,
                 ),

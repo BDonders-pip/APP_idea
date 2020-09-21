@@ -1,27 +1,46 @@
-import 'package:app_ingredients/features/ingredients_app/domain/entities/ingredient.dart';
-import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+part of 'ingredient_cubit.dart';
 
 @immutable
-abstract class IngredientState extends Equatable {
-  IngredientState([List props = const <dynamic>[]]) : super(props);
+abstract class IngredientState {
+  const IngredientState();
 }
 
-class Empty extends IngredientState {
-  @override
-  List<Object> get props => [];
+class IngredientInitial extends IngredientState {
+  const IngredientInitial();
 }
 
-class Loading extends IngredientState {}
+class IngredientLoading extends IngredientState {
+  const IngredientLoading();
+}
 
-class Loaded extends IngredientState {
+class IngredientLoaded extends IngredientState {
   final Ingredient ingredient;
+  const IngredientLoaded(this.ingredient);
 
-  Loaded({@required this.ingredient}): super([ingredient]);
+  // Overriding equality to avoid some of confusions in future
+  @override
+  bool operator == (Object o) {
+    if (identical(this, o)) return true;
+
+    return o is IngredientLoaded && o.ingredient == ingredient;
+  }
+
+  @override
+  int get hashCode => ingredient.hashCode;
 }
 
-class Error extends IngredientState {
+class IngredientError extends IngredientState {
   final String message;
+  const IngredientError(this.message);
 
-  Error({@required this.message}): super([message]);
+  // Overriding equality to avoid some of confusions in future
+  @override
+  bool operator == (Object o) {
+    if (identical(this, o)) return true;
+
+    return o is IngredientError && o.message == message;
+  }
+
+  @override
+  int get hashCode => message.hashCode;
 }

@@ -1,4 +1,4 @@
-import 'package:app_ingredients/features/ingredients_app/presentation/bloc/bloc.dart';
+import 'package:app_ingredients/features/ingredients_app/presentation/bloc/ingredient_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,10 +9,10 @@ class IngredientControls extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _IngredientControls createState() => _IngredientControls();
+  _IngredientControlsState createState() => _IngredientControlsState();
 }
 
-class _IngredientControls extends State<IngredientControls> {
+class _IngredientControlsState extends State<IngredientControls> {
   final controller = TextEditingController();
   String inputStr;
 
@@ -28,9 +28,7 @@ class _IngredientControls extends State<IngredientControls> {
         onChanged: (value) {
           inputStr = value;
         },
-        onSubmitted: (_) {
-          dispatchIngredient();
-        },
+        onSubmitted: (value) => submitIngredientName(context, value),
       ),
       SizedBox(height: 10),
       Row(
@@ -40,7 +38,7 @@ class _IngredientControls extends State<IngredientControls> {
               child: Text("Search a ingredient"),
               color: Theme.of(context).accentColor,
               textTheme: ButtonTextTheme.primary,
-              onPressed: dispatchIngredient,
+              onPressed: () {},
             ),
           ),
           SizedBox(width: 10),
@@ -50,8 +48,10 @@ class _IngredientControls extends State<IngredientControls> {
     );
   }
 
-  void dispatchIngredient() {
+  void submitIngredientName (BuildContext context, String inputStr) {
+    print(inputStr);
     controller.clear();
-    BlocProvider.of<IngredientBloc>(context).dispatch(GetIngredientEvent(inputStr));
+    final ingredientCubit = context.bloc<IngredientCubit>();
+    ingredientCubit.getIngredient(inputStr);
   }
 }
