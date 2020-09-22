@@ -6,10 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/ingredients_app/domain/usecases/get_ingredient.dart';
-import 'features/ingredients_app/presentation/pages/camera_page_test.dart';
 import 'package:app_ingredients/injection_container.dart' as di;
-
-import 'injection_container.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue
       ),
       home: BlocProvider(
-          create: (context) => IngredientCubit(GetIngredient(sl())),
+          create: (context) => IngredientCubit(GetIngredient(di.sl())),
           child: IngredientTestPage(),
       ),
     );
