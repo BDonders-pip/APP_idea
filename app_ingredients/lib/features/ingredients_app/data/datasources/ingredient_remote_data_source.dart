@@ -30,9 +30,15 @@ class IngredientRemoteDataSourceImpl implements IngredientRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return IngredientModel.fromJson(json.decode(response.body));
+      List<IngredientModel> list = parseIngredients(response.body);
+      return list[0];
     } else {
       throw ServerException();
     }
+  }
+
+  static List<IngredientModel> parseIngredients(String responseBody) {
+    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+    return parsed.map<IngredientModel>((json) => IngredientModel.fromJson(json)).toList();
   }
 }

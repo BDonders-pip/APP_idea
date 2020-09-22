@@ -15,6 +15,7 @@ class IngredientLoading extends IngredientState {
 
 class IngredientLoaded extends IngredientState {
   final Ingredient ingredient;
+
   const IngredientLoaded(this.ingredient);
 
   // Overriding equality to avoid some of confusions in future
@@ -31,6 +32,7 @@ class IngredientLoaded extends IngredientState {
 
 class IngredientError extends IngredientState {
   final String message;
+
   const IngredientError(this.message);
 
   // Overriding equality to avoid some of confusions in future

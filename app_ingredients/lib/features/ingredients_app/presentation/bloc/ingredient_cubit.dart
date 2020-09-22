@@ -17,6 +17,7 @@ class IngredientCubit extends Cubit<IngredientState> {
 
   IngredientCubit(this._getIngredient) : super(IngredientInitial());
 
+  // GetIngredientEvent
   Future<void> getIngredient(String ingredientName) async {
     emit(IngredientLoading());
 
