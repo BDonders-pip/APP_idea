@@ -1,13 +1,21 @@
-
+import 'package:app_ingredients/features/ingredients_app/presentation/pages/camera_page.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TestCameraPage extends StatelessWidget {
+
+
+class CameraTestPage extends StatefulWidget {
+  @override
+  _CameraTestPageState createState() => _CameraTestPageState();
+}
+
+class _CameraTestPageState extends State<CameraTestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Test page"),
+        title: Text("Camera test page"),
       ),
       body: buildBody(context),
     );
@@ -21,7 +29,14 @@ class TestCameraPage extends StatelessWidget {
         height: 300,
         child: Center(
             child: OutlineButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CameraInit()
+                  ),
+                );
+              },
               child: Text(
                 "Abrir camara",
                 style: TextStyle(
@@ -39,5 +54,9 @@ class TestCameraPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void cameraInit (BuildContext context, List<CameraDescription> cameras) {
+
   }
 }

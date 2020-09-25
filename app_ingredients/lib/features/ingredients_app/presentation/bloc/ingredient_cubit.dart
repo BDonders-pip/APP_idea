@@ -42,5 +42,4 @@ class IngredientCubit extends Cubit<IngredientState> {
         return "Unexpected error";
     }
   }
-
 }

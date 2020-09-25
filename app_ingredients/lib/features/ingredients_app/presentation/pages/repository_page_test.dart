@@ -8,7 +8,7 @@ class IngredientTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Number Trivia"),
+        title: Text("Repository test page"),
       ),
       body: SingleChildScrollView(
         child: buildBody(context),
@@ -40,7 +40,7 @@ class IngredientTestPage extends StatelessWidget {
                   );
                 } else {
                   return MessageDisplay(
-                    message: "What is going on",
+                    message: "What is going on", // This must never appears
                   );
                 }
               },

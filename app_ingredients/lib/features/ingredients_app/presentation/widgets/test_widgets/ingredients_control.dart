@@ -38,7 +38,7 @@ class _IngredientControlsState extends State<IngredientControls> {
               child: Text("Search a ingredient"),
               color: Theme.of(context).accentColor,
               textTheme: ButtonTextTheme.primary,
-              onPressed: () {},
+              onPressed: () => submitIngredientName(context, inputStr),
             ),
           ),
           SizedBox(width: 10),
@@ -48,8 +48,7 @@ class _IngredientControlsState extends State<IngredientControls> {
     );
   }
 
-  void submitIngredientName (BuildContext context, String inputStr) {
-    print(inputStr);
+  submitIngredientName (BuildContext context, String inputStr) {
     controller.clear();
     final ingredientCubit = context.bloc<IngredientCubit>();
     ingredientCubit.getIngredient(inputStr);
